@@ -554,12 +554,23 @@ video {
   display: none;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+.static {
+  position: static;
 }
 
-.text-yellow {
-  --tw-text-opacity: 1;
-  color: rgb(255 209 91 / var(--tw-text-opacity, 1));
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(2 2 3 / var(--tw-bg-opacity, 1));
 }

@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC } from 'react';
 
 const Footer: FC = () => {
   return (
     <footer>
-      <span className="">Footer</span>
+      <span className=''>Footer</span>
     </footer>
   );
 };

@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC } from 'react';
 
 const Header: FC = () => {
   return (
-    <header>
+    <header className=''>
       <span>Header</span>
     </header>
   );

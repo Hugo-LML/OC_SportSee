@@ -1,26 +1,23 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Roboto', 'sans-serif'],
+        sans: ['Roboto', 'sans-serif'],
       },
       colors: {
-        yellow: {
-          DEFAULT: '#FFD15B',
+        red: {
+          DEFAULT: '#FF0101',
         },
         black: {
-          DEFAULT: '#1B1B1B',
+          DEFAULT: '#020203',
         },
         gray: {
-          DEFAULT: '#7A7A7A',
-          light: '#EDEDED',
+          DEFAULT: '#FBFBFB',
         },
-      }
+      },
     },
   },
-  plugins: [
-    "prettier-plugin-tailwind",
-  ]
-}
+  plugins: ['prettier-plugin-tailwind'],
+};
