@@ -1,13 +1,15 @@
 import { FC, PropsWithChildren } from 'react';
-import Footer from './Footer/Footer';
 import Header from './Header/Header';
+import Sidebar from './Sidebar/Sidebar';
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
       <Header />
-      <main>{children}</main>
-      <Footer />
+      <div className='flex h-[calc(100vh-5.625rem)] w-full'>
+        <Sidebar />
+        <main className='w-full px-24 pb-20 pt-16'>{children}</main>
+      </div>
     </>
   );
 };
