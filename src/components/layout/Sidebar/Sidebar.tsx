@@ -17,7 +17,7 @@ const Sidebar: FC = () => {
     <nav className='relative flex h-full flex-col justify-center items-center bg-black px-6 text-white'>
       <div className='flex flex-col space-y-5 pb-40 2xl:pb-20'>
         {links.map(link => (
-          <Link to={link.url} title={link.label} className='flex size-16 items-center justify-center rounded-md bg-white'>
+          <Link key={link.label} to={link.url} title={link.label} className='flex size-16 items-center justify-center rounded-md bg-white'>
             <link.icon />
           </Link>
         ))}
