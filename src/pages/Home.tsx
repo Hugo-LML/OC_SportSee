@@ -4,6 +4,7 @@ import HomeGreeting from '../components/home/HomeGreeting/HomeGreeting';
 import Layout from '../components/layout/Layout';
 import { getUser, getUserActivity, getUserAverageSession, getUserPerformance } from '../services/api';
 import { UserData } from '../types';
+import HomeMacros from '../components/home/HomeMacros/HomeMacros';
 
 const Home: FC = () => {
   const [data, setData] = useState<UserData | null>(null);
@@ -33,7 +34,7 @@ const Home: FC = () => {
           <HomeGreeting name={data.user.userInfos.firstName} />
           <div className='flex space-x-8 mt-16'>
             <HomeBarChart sessions={formattedSessions || []} />
-            <div className='h-96 w-64 rounded-md bg-gray'></div>
+            <HomeMacros macros={data.user.keyData} />
           </div>
         </>
       ) : (
