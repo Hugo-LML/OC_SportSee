@@ -1,21 +1,31 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; 
 
-svg.recharts-surface {
+.recharts-bar svg.recharts-surface, .recharts-line svg.recharts-surface {
   overflow: visible;
 }
 
-g.xAxis line {
+.recharts-bar g.xAxis line {
   stroke: #DEDEDE;
 }
 
-g.yAxis line {
+.recharts-bar g.yAxis line {
   opacity: 0;
 }
 
-g.xAxis text, g.yAxis text {
+.recharts-bar g.xAxis text, g.yAxis text {
   color: #9B9EAC;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.recharts-line g.xAxis line {
+  opacity: 0;
+}
+
+.recharts-line g.xAxis text {
+  fill: #ffffff50;
   font-weight: 500;
   font-size: 14px;
 }

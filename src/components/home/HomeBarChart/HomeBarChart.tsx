@@ -10,7 +10,7 @@ interface HomeBarChartProps {
 const CustomTooltip: FC<{ active?: boolean; payload?: { value: number }[]; label?: string }> = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
-      <div className='space-y-6 bg-red p-4 text-center text-sm text-white'>
+      <div className='space-y-6 bg-red p-4 text-center text-sm font-medium text-white'>
         <p>{`${payload[0].value}kg`}</p>
         <p>{`${payload[1].value}kCal`}</p>
       </div>
@@ -22,9 +22,9 @@ const CustomTooltip: FC<{ active?: boolean; payload?: { value: number }[]; label
 
 const HomeBarChart: FC<HomeBarChartProps> = ({ sessions }) => {
   return (
-    <section className='relative w-full rounded-md bg-gray py-6 px-8'>
+    <section className='relative h-[312px] w-full rounded-md bg-gray px-8 py-6'>
       <HomeBarChartLegend />
-      <ResponsiveContainer width='100%' height='100%' style={{ overflow: 'visible' }}>
+      <ResponsiveContainer width='100%' height='100%' style={{ overflow: 'visible' }} className='recharts-bar'>
         <BarChart
           data={sessions}
           margin={{

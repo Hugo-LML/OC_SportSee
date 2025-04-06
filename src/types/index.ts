@@ -26,7 +26,7 @@ export interface UserActivity {
 export interface UserAverageSession {
   userId: number;
   sessions: {
-    day: number;
+    day: number | string;
     sessionLength: number;
   }[];
 }
