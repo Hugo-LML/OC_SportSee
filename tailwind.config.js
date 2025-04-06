@@ -9,12 +9,14 @@ module.exports = {
       colors: {
         red: {
           DEFAULT: '#FF0101',
+          dark: '#E60000',
         },
         black: {
           DEFAULT: '#020203',
         },
         gray: {
           DEFAULT: '#FBFBFB',
+          dark: '#20253A',
         },
       },
     },

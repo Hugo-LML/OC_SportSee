@@ -1,4 +1,5 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
+import HomeBarChart from '../components/home/HomeBarChart/HomeBarChart';
 import HomeGreeting from '../components/home/HomeGreeting/HomeGreeting';
 import Layout from '../components/layout/Layout';
 import { getUser, getUserActivity, getUserAverageSession, getUserPerformance } from '../services/api';
@@ -21,10 +22,20 @@ const Home: FC = () => {
     fetchData();
   }, []);
 
+  const formattedSessions = useMemo(() => {
+    return data?.activity.sessions.map(session => ({ ...session, day: session.day.split("-")[2] }));
+  }, [data]);
+
   return (
     <Layout>
       {data ? (
-        <HomeGreeting name={data.user.userInfos.firstName} />
+        <>
+          <HomeGreeting name={data.user.userInfos.firstName} />
+          <div className='flex space-x-8 mt-16'>
+            <HomeBarChart sessions={formattedSessions || []} />
+            <div className='h-96 w-64 rounded-md bg-gray'></div>
+          </div>
+        </>
       ) : (
         <p>Loading...</p>
       )}

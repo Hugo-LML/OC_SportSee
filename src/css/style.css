@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+svg.recharts-surface {
+  overflow: visible;
+}
+
+g.xAxis line {
+  stroke: #DEDEDE;
+}
+
+g.yAxis line {
+  opacity: 0;
+}
+
+g.xAxis text, g.yAxis text {
+  color: #9B9EAC;
+  font-weight: 500;
+  font-size: 14px;
+}

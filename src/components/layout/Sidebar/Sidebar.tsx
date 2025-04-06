@@ -14,7 +14,7 @@ const links = [
 
 const Sidebar: FC = () => {
   return (
-    <nav className='relative flex h-full flex-col justify-center items-center bg-black px-6 text-white'>
+    <nav className='fixed flex h-full flex-col justify-center items-center bg-black px-6 text-white'>
       <div className='flex flex-col space-y-5 pb-40 2xl:pb-20'>
         {links.map(link => (
           <Link key={link.label} to={link.url} title={link.label} className='flex size-16 items-center justify-center rounded-md bg-white'>
