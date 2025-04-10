@@ -7,6 +7,7 @@ import HomeRadarChart from '../components/home/HomeRadarChart/HomeRadarChart';
 import Layout from '../components/layout/Layout';
 import { getUser, getUserActivity, getUserAverageSession, getUserPerformance } from '../services/api';
 import { UserData } from '../types';
+import HomeRadialChart from '../components/home/HomeRadialChart/HomeRadialChart';
 
 const Home: FC = () => {
   const [data, setData] = useState<UserData | null>(null);
@@ -52,6 +53,7 @@ const Home: FC = () => {
               <div className='mt-8 flex h-[280px] w-full space-x-8'>
                 <HomeLineChart sessions={formattedAverageSessions || []} />
                 <HomeRadarChart performances={formattedPerformances || []} />
+                <HomeRadialChart score={data.user.todayScore} />
               </div>
             </div>
             <HomeMacros macros={data.user.keyData} />
