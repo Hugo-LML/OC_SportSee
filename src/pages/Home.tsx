@@ -4,10 +4,10 @@ import HomeGreeting from '../components/home/HomeGreeting/HomeGreeting';
 import HomeLineChart from '../components/home/HomeLineChart/HomeLineChart';
 import HomeMacros from '../components/home/HomeMacros/HomeMacros';
 import HomeRadarChart from '../components/home/HomeRadarChart/HomeRadarChart';
+import HomeRadialChart from '../components/home/HomeRadialChart/HomeRadialChart';
 import Layout from '../components/layout/Layout';
 import { getUser, getUserActivity, getUserAverageSession, getUserPerformance } from '../services/api';
 import { UserData } from '../types';
-import HomeRadialChart from '../components/home/HomeRadialChart/HomeRadialChart';
 
 const Home: FC = () => {
   const [data, setData] = useState<UserData | null>(null);
@@ -47,10 +47,10 @@ const Home: FC = () => {
       {data ? (
         <>
           <HomeGreeting name={data.user.userInfos.firstName} />
-          <div className='mt-16 flex space-x-8'>
+          <div className='mt-8 xl:mt-16 flex space-x-2 xl:space-x-8'>
             <div className='w-full'>
               <HomeBarChart sessions={formattedSessions || []} />
-              <div className='mt-8 flex h-[280px] w-full space-x-8'>
+              <div className='mt-2 flex h-[240px] w-full space-x-2 xl:mt-8 xl:h-[280px] xl:space-x-8'>
                 <HomeLineChart sessions={formattedAverageSessions || []} />
                 <HomeRadarChart performances={formattedPerformances || []} />
                 <HomeRadialChart score={data.user.todayScore} />

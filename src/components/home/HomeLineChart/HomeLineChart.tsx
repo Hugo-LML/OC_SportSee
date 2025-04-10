@@ -22,7 +22,7 @@ const HomeLineChart: FC<HomeLineChartProps> = ({ sessions }) => {
   return (
     <section className='relative w-1/3 h-full rounded-md bg-[#F00] px-8 py-6'>
       <div className='absolute top-0 right-0 w-[30%] rounded-r-md h-full bg-red-dark' aria-hidden />
-      <h2 className='absolute text-white/50 font-medium w-36'>Durée moyenne des sessions</h2>
+      <h2 className='absolute text-white/50 font-medium w-36 top-2 left-2 xl:top-auto xl:left-auto'>Durée moyenne des sessions</h2>
       <ResponsiveContainer width='100%' height='100%' className='recharts-line'>
         <LineChart
           data={sessions}

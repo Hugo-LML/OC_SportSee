@@ -40,8 +40,11 @@
 
 .recharts-radar g text {
   fill: #FFF !important;
-  font-size: 12px;
   font-weight: 500;
+  font-size: 11px;
+  @media screen and (min-width: 1280px) {
+    font-size: 12px;
+  }
 }
 
 .recharts-radar .recharts-polar-grid-angle line {

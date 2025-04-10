@@ -18,14 +18,14 @@ const HomeMacros: FC<HomeMacrosProps> = ({ macros }) => {
   ] as const;
 
   return (
-    <section className='flex flex-col space-y-10'>
+    <section className='flex flex-col space-y-2 xl:space-y-10'>
       {macroCards.map(card => (
-        <div key={card.key} className='rounded-md bg-gray p-8 flex items-center space-x-6'>
-          <div className='rounded-md flex justify-center items-center size-[3.75rem]' style={{ backgroundColor: card.color }}>
+        <div key={card.key} className='rounded-md bg-gray p-4 xl:p-8 flex items-center space-x-6'>
+          <div className='rounded-md flex justify-center items-center size-10 xl:size-[3.75rem]' style={{ backgroundColor: card.color }}>
             <card.icon />
           </div>
-          <div className='flex flex-col space-y-1'>
-            <span className='font-bold text-xl'>{`${macros[card.key].toLocaleString()}${card.unit}`}</span>
+          <div className='flex flex-col space-y-0 xl:space-y-1'>
+            <span className='font-bold text-lg xl:text-xl'>{`${macros[card.key].toLocaleString()}${card.unit}`}</span>
             <span className='text-gray-medium text-sm'>{card.label}</span>
           </div>
         </div>
