@@ -3,6 +3,7 @@ import HomeBarChart from '../components/home/HomeBarChart/HomeBarChart';
 import HomeGreeting from '../components/home/HomeGreeting/HomeGreeting';
 import HomeLineChart from '../components/home/HomeLineChart/HomeLineChart';
 import HomeMacros from '../components/home/HomeMacros/HomeMacros';
+import HomeRadarChart from '../components/home/HomeRadarChart/HomeRadarChart';
 import Layout from '../components/layout/Layout';
 import { getUser, getUserActivity, getUserAverageSession, getUserPerformance } from '../services/api';
 import { UserData } from '../types';
@@ -33,6 +34,13 @@ const Home: FC = () => {
     return data?.averageSession.sessions.map((session, index) => ({ ...session, day: days[index] }));
   }, [data?.averageSession.sessions]);
 
+  const formattedPerformances = useMemo(() => {
+    if (data) {
+      const performanceKeys = Object.values(data.performance.kind);
+      return data?.performance.data.map((perf, index) => ({ ...perf, kind: performanceKeys[index] }));
+    }
+  }, [data]);
+
   return (
     <Layout>
       {data ? (
@@ -43,6 +51,7 @@ const Home: FC = () => {
               <HomeBarChart sessions={formattedSessions || []} />
               <div className='mt-8 flex h-[280px] w-full space-x-8'>
                 <HomeLineChart sessions={formattedAverageSessions || []} />
+                <HomeRadarChart performances={formattedPerformances || []} />
               </div>
             </div>
             <HomeMacros macros={data.user.keyData} />

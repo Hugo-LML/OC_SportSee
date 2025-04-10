@@ -43,7 +43,7 @@ export interface UserPerformance {
   };
   data: {
     value: number;
-    kind: number;
+    kind: number | string;
   }[];
 }
 

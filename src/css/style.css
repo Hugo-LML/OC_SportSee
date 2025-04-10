@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities; 
 
-.recharts-bar svg.recharts-surface, .recharts-line svg.recharts-surface {
+/* RECHARTS */
+
+.recharts-bar svg.recharts-surface, .recharts-line svg.recharts-surface, .recharts-radar svg.recharts-surface {
   overflow: visible;
 }
+
+/* RECHARTS BAR */
 
 .recharts-bar g.xAxis line {
   stroke: #DEDEDE;
@@ -20,6 +24,8 @@
   font-size: 14px;
 }
 
+/* RECHARTS LINE */
+
 .recharts-line g.xAxis line {
   opacity: 0;
 }
@@ -28,4 +34,16 @@
   fill: #ffffff50;
   font-weight: 500;
   font-size: 14px;
+}
+
+/* RECHARTS RADAR */
+
+.recharts-radar g text {
+  fill: #FFF !important;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.recharts-radar .recharts-polar-grid-angle line {
+  opacity: 0;
 }
