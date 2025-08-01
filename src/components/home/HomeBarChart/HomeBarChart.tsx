@@ -24,7 +24,7 @@ const HomeBarChart: FC<HomeBarChartProps> = ({ sessions }) => {
   return (
     <section className='relative h-[312px] w-full rounded-md bg-gray px-8 py-6'>
       <HomeBarChartLegend />
-      <ResponsiveContainer width='100%' height='100%' style={{ overflow: 'visible' }} className='recharts-bar'>
+      <ResponsiveContainer width='110%' height='100%' style={{ overflow: 'visible' }} className='recharts-bar'>
         <BarChart
           data={sessions}
           margin={{
@@ -37,10 +37,11 @@ const HomeBarChart: FC<HomeBarChartProps> = ({ sessions }) => {
         >
           <CartesianGrid strokeDasharray='3 3' vertical={false} />
           <XAxis dataKey='day' tickLine={false} tickMargin={16} />
-          <YAxis orientation='right' tickLine={false} tickMargin={40} />
+          <YAxis yAxisId='yKilo' orientation='right' tickLine={false} tickMargin={10} domain={['dataMin - 1', 'dataMax + 1']} />
+          <YAxis id='yCal' yAxisId='yCal' orientation='right' tickLine={false} tickMargin={40} className='hidden' />
           <Tooltip content={<CustomTooltip />} cursor={{ fill: '#C4C4C450' }} />
-          <Bar dataKey='kilogram' fill='#282D30' radius={[1000, 1000, 0, 0]} barSize={10} />
-          <Bar dataKey='calories' fill='#E60000' radius={[1000, 1000, 0, 0]} barSize={10} />
+          <Bar yAxisId='yKilo' dataKey='kilogram' fill='#282D30' radius={[1000, 1000, 0, 0]} barSize={10} />
+          <Bar yAxisId='yCal' dataKey='calories' fill='#E60000' radius={[1000, 1000, 0, 0]} barSize={10} />
         </BarChart>
       </ResponsiveContainer>
     </section>

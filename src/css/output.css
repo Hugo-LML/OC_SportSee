@@ -618,6 +618,10 @@ video {
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
@@ -1002,8 +1006,6 @@ video {
 .recharts-radar .recharts-polar-grid-angle line {
   opacity: 0;
 }
-
-/* RECHARTS RADIAL */
 
 @media (min-width: 1280px) {
   .xl\:left-8 {
