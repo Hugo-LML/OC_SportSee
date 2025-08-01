@@ -18,18 +18,18 @@ async function apiGet<T>(endpoint: string): Promise<T> {
   return data.data;
 }
 
-export async function getUser(userId: number) {
+export function getUser(userId: number) {
   return apiGet<User>(`/user/${userId}`);
 }
 
-export async function getUserActivity(userId: number) {
+export function getUserActivity(userId: number) {
   return apiGet<UserActivity>(`/user/${userId}/activity`);
 }
 
-export async function getUserAverageSession(userId: number) {
+export function getUserAverageSession(userId: number) {
   return apiGet<UserAverageSession>(`/user/${userId}/average-sessions`);
 }
 
-export async function getUserPerformance(userId: number) {
+export function getUserPerformance(userId: number) {
   return apiGet<UserPerformance>(`/user/${userId}/performance`);
 }

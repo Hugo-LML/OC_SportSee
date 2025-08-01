@@ -9,6 +9,7 @@ interface HomeRadialChartProps {
 
 const HomeRadialChart: FC<HomeRadialChartProps> = ({ score }) => {
   const data = [{ score: score * 100, fill: '#FF0101' }];
+
   return (
     <section className='relative h-full w-1/3 rounded-md bg-gray px-4 py-3 xl:px-8 xl:py-6'>
       <HomeRadialChartLegend score={score * 100} />

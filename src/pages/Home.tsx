@@ -12,29 +12,33 @@ import { UserData } from '../types';
 const Home: FC = () => {
   const [data, setData] = useState<UserData | null>(null);
 
-  useEffect(() => {
-    async function fetchData() {
-      const [user, activity, averageSession, performance] = await Promise.all([
-        getUser(12),
-        getUserActivity(12),
-        getUserAverageSession(12),
-        getUserPerformance(12),
-      ]);
+  async function fetchData(userId: 12 | 18) {
+    const [user, activity, averageSession, performance] = await Promise.all([
+      getUser(userId),
+      getUserActivity(userId),
+      getUserAverageSession(userId),
+      getUserPerformance(userId),
+    ]);
 
-      setData({ user, activity, averageSession, performance });
-    }
-    fetchData();
+    setData({ user, activity, averageSession, performance });
+  }
+
+  useEffect(() => {
+    fetchData(12);
   }, []);
 
+  // Get only the day instead of the full date (e.g.: '01' instead of '2020-07-01')
   const formattedSessions = useMemo(() => {
     return data?.activity.sessions.map(session => ({ ...session, day: session.day.split('-')[2] }));
   }, [data?.activity.sessions]);
 
+  // Get the letter of the day instead of its index (e.g.: 'L' instead of '1')
   const formattedAverageSessions = useMemo(() => {
     const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
     return data?.averageSession.sessions.map((session, index) => ({ ...session, day: days[index] }));
   }, [data?.averageSession.sessions]);
 
+  // Get the name of the kind of performance instead of its index (e.g.: 'cardio' instead of '1')
   const formattedPerformances = useMemo(() => {
     if (data) {
       const performanceKeys = Object.values(data.performance.kind);
@@ -47,7 +51,7 @@ const Home: FC = () => {
       {data ? (
         <>
           <HomeGreeting name={data.user.userInfos.firstName} />
-          <div className='mt-8 xl:mt-16 flex space-x-2 xl:space-x-8'>
+          <div className='mt-8 flex space-x-2 xl:mt-16 xl:space-x-8'>
             <div className='w-full'>
               <HomeBarChart sessions={formattedSessions || []} />
               <div className='mt-2 flex h-[240px] w-full space-x-2 xl:mt-8 xl:h-[280px] xl:space-x-8'>
